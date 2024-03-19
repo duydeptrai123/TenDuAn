@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "336103158180",
+    "project_id": "list-pushnotification",
+    "storage_bucket": "list-pushnotification.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:336103158180:android:1a9dd4c30896a9114f9131",
+        "android_client_info": {
+          "package_name": "com.tenduan"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA28qUX2c3tydtWp-OsiseZWOG7Wz-yfws"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

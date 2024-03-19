@@ -62,7 +62,7 @@ const Detail = (item) => {
                     text: 'OK',
                     onPress: () => {
                         dispatch(addAntreo(DataItem))
-                        navigation.navigate('Án treo')
+                        navigation.navigate('Home')
                         // console.log('DataItem',DataItem)
                     },
                 },
@@ -103,7 +103,7 @@ const Detail = (item) => {
                     </TextInput>
                 </View>
                 <View style={{ flexDirection: 'row', marginTop: 10 }}>
-                    <Text>CCCD: </Text>
+                    <Text>CCCD:       </Text>
                     <TextInput
                         style={{ width: '100%',borderColor:'gray', borderWidth:0.2, flex:1 }}
                         onChangeText={(text) => setCCCD1(text)}
@@ -112,7 +112,7 @@ const Detail = (item) => {
                 </View>
             </View>
         </View>
-        <View style={{ marginLeft: 20, flexDirection: 'row' }}>
+        {/* <View style={{ marginLeft: 20, flexDirection: 'row' }}>
             <Text>Ngày cấp CCCD: </Text>
             <TextInput style={{width: '100%', borderColor:'gray', borderWidth:0.2, flex:1 }}
 
@@ -201,7 +201,7 @@ const Detail = (item) => {
                     value={ngayketthuc1}
                     onChangeText={(text) => setNgayketthuc1(text)}>
                 </TextInput>
-            </View>
+            </View> */}
             <View style={{ flexDirection: 'row', flex: 1 }}>
                 <TouchableOpacity onPress={Add} style={{ flex: 1, height: 50, backgroundColor: 'pink', margin: 20, borderRadius: 10, justifyContent: 'center', alignItems: 'center' }}>
                     <Text>

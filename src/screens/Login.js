@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { View, Text, Alert, Button, TextInput, TouchableOpacity } from 'react-native';
 import CustomInput from '../CustomInput';
 import CustomButton from '../CustomButton';
@@ -75,6 +75,9 @@ const Login = () => {
   
     return unsubscribe;
   }, [navigation]);
+
+  const memory = useMemo( () => Math.random(), [username]);// useMemo giảm thừa thái các tính toán phức tạp, không cần thiết
+  console.log(memory)                                      
 
   return (
     <View style={{ flex: 1 }}>

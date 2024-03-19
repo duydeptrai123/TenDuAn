@@ -3,6 +3,7 @@ import { Alert, Button, ImageBackground, ScrollView, Text, TextInput, TouchableO
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { DELETE_ANTREO, deleteAntreo, updateAntreo } from "../redux/action/antreoAction";
 import { useDispatch } from "react-redux";
+import Home from "./Home";
 
 const Detail = (item) => {
     // console.log('onnn', item?.route?.params);
@@ -88,7 +89,7 @@ const Detail = (item) => {
                     text: 'OK',
                     onPress: () => {
                         dispatch(updateAntreo(id, DataItem))
-                        navigation.navigate('Án treo')
+                        navigation.navigate('Danh sách')
                         // console.log('DataItem',DataItem)
                     },
                 },
@@ -138,7 +139,7 @@ const Detail = (item) => {
                     </View>
                 </View>
             </View>
-            <View style={{ marginLeft: 20, flexDirection: 'row' }}>
+            {/* <View style={{ marginLeft: 20, flexDirection: 'row' }}>
                 <Text>Ngày cấp CCCD: </Text>
                 <TextInput style={{width: '100%', borderColor:'gray', borderWidth:0.2, flex:1 }}
 
@@ -219,7 +220,7 @@ const Detail = (item) => {
                     value={ngaybatdau1}
                     onChangeText={(text) => setNgaybatdau1(text)}>
                 </TextInput>
-            </View>
+            </View> */}
             <View style={{ flexDirection: 'row', flex: 1 }}>
                 <TouchableOpacity title="Xoa" onPress={Delete} style={{ flex: 1, height: 50, backgroundColor: 'pink', margin: 20, borderRadius: 10, justifyContent: 'center', alignItems: 'center' }}>
                     <Text>

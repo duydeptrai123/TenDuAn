@@ -17,9 +17,7 @@ const Survey2  = ({answers, changeAnswer}) => {
   const navigation = useNavigation();
 
   const handleCheckBox = (arrange) => {
-    console.log('arrayy',data[arrange])
     const isChecked = survey2Answer.find(item => item === data[arrange]);
-    console.log('ischecked',isChecked)
     let updatedAnswers = {};
     if (!isChecked) {
       //option not chosen

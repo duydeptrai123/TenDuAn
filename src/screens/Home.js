@@ -9,15 +9,19 @@ import {
     TouchableOpacity,
     View,
     TextInput,
-    ImageBackground
+    ImageBackground,
+    Image
 } from 'react-native';
-import { GET_ANTREO, getAntreo } from '../redux/action/antreoAction';
+import { GET_ANTREO, SET_PRODUCT_LOADING, getAntreo } from '../redux/action/antreoAction';
 import { useDispatch, useSelector } from 'react-redux';
 import Detail from './detail';
 import { useNavigation, useRoute } from '@react-navigation/native'
 import axios from 'axios';
 import { SwipeListView } from 'react-native-swipe-gestures';
 // import Icon from 'react-native-vector-icons/FontAwesome';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {requestUserPermission, notificationlistener} from '../utils/notificationServices'
+
 
 
 
@@ -30,6 +34,7 @@ const Item = ({ item, onPress, backgroundColor, textColor }) => (
 );
 
 const Home = () => {
+    const API_BASE_URL = 'https://6561e085dcd355c083244878.mockapi.io'
     const [selectedId, setSelectedId] = useState();
     const dispatch = useDispatch()
     const productreducer = useSelector(state => state?.antreoReducer)
@@ -79,8 +84,22 @@ const Home = () => {
     //             console.log(error)
     //         })
     // }, [])
-    useEffect(() => {
-        dispatch(getAntreo())
+    useEffect(()  => {
+        // requestUserPermission()
+        // notificationlistener()
+        const logdata = async () => {
+            try{
+                const database = await AsyncStorage.getItem('posts')
+                if(database){
+                    // console.log('database', database)
+                }
+                // requestUserPermission()
+                 dispatch(getAntreo())
+            } catch(error){
+                console.log('error')
+            }
+        }
+        logdata()
     }, [])
 
     const filterItemName = () => {
@@ -94,7 +113,7 @@ const Home = () => {
         }
     }, [keyword])
     const handlePress = () => {
-        navigation.navigate('AddAntreo')
+        navigation.navigate('addAntreo')
     };
     return (
         <SafeAreaView style={styles.container}>
@@ -128,9 +147,12 @@ const Home = () => {
                 />
             )}
 
-            <View style={{ flex: 1, position: 'absolute', right:0, bottom:0, marginBottom:10, marginRight:10 }}>
-                <TouchableOpacity onPress={handlePress}>
-                <Icon name="plus" size={30} color="black" />
+            <View style={{ flex: 1, position: 'absolute', right: 0, bottom: 0, marginBottom: 10, marginRight: 10 }}>
+                <TouchableOpacity  onPress={handlePress}>
+                    <Image
+                        source={require('../utils/plus.jpeg')}
+                        style={styles.image}
+                    />
                 </TouchableOpacity>
             </View>
         </SafeAreaView>
@@ -151,6 +173,11 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 32,
     },
+    image: {
+        width: 50,
+        height: 50,
+        resizeMode: 'contain', // Tuỳ chọn, có thể là 'cover', 'stretch', 'contain', ...
+      },
 });
 
 export default Home;

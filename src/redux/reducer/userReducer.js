@@ -6,7 +6,7 @@ const initialValue = {
 };
 
 export default function userReducer(state = initialValue, action) {
-    console.log('010101010duy', action.data)
+    // console.log('010101010duy', action.data)
     
     // console.log('vaooo 22')
     switch (action.type) {
